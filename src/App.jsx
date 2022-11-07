@@ -28,8 +28,6 @@ const router = createBrowserRouter(
 );
 
 function App() {
-	const [query, setQuery] = useState("");
-	const [data, setData] = useState([]);
 	return (
 		<div className='App'>
 			<RouterProvider router={router} />
