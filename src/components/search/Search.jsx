@@ -7,25 +7,30 @@ const Search = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/post`);
+			const { data } = await axios.get(`/?q=${query}`);
 			setData(data);
 		};
-		if (query.length === 0 || query.length > 2) fetchData();
+		if (query.length > 2) {
+			fetchData();
+		} else setData([]);
 	}, [query]);
 
 	return (
 		<>
 			<div className='search'>
-				<input className='search' placeholder='Search...' onChange={(e) => setQuery(e.target.value.toLowerCase())} />
+				<input className='search' placeholder='мин 3 символа' onChange={(e) => setQuery(e.target.value.toLowerCase())} />
 			</div>
 			<div className='search-results'>
 				<div className='search-results-container'>
 					<div className='search-results-items'>
-						{data.map((item) => (
-							<div key={item.id}>
-								<div>{item.first_name}</div>
-							</div>
-						))}
+						{data &&
+							data.map((item) => (
+								<div key={item.id} style={{ display: "flex", columnGap: "10px" }}>
+									<div>{item.name}</div>
+									<div>{item.surname}</div>
+									<div>{item.email}</div>
+								</div>
+							))}
 					</div>
 				</div>
 			</div>
