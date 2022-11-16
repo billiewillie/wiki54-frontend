@@ -1,21 +1,25 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from '../../axios';
+import { Link, useParams } from 'react-router-dom';
 
 const PostsPage = () => {
-	const [posts, setPosts] = useState([]);
+	const [data, setData] = useState([]);
+	const { department } = useParams();
 
 	useEffect(() => {
-		fetch("https://jsonplaceholder.typicode.com/posts")
-			.then((response) => response.json())
-			.then((json) => setPosts(json));
-	}, []);
+		const fetchData = async () => {
+			const { data } = await axios.get(`/${department}`);
+			setData(data);
+		};
+		fetchData();
+	}, [data]);
 
 	return (
 		<div>
 			<h1>Posts</h1>
-			{posts.map((post) => (
-				<Link key={post.id} to={`/posts/${post.id}`}>
-					<li>{post.title}</li>
+			{data.map((post) => (
+				<Link key={post.id} to={`/${department}/${post.id}`}>
+					<p>{post.name}</p>
 				</Link>
 			))}
 		</div>

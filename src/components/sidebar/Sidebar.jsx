@@ -1,16 +1,27 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
+	const departments = [
+		{
+			title: 'studia54',
+			link: '/studia54',
+		},
+		{
+			title: 'architecture',
+			link: '/architecture',
+		},
+	];
+
 	return (
-		<aside>
+		<aside className={styles.aside}>
 			<nav className='sidebar-menu'>
-				<ul>
-					<li>
-						<NavLink to='/'>Home</NavLink>
-					</li>
-					<li>
-						<NavLink to='/posts'>Posts</NavLink>
-					</li>
+				<ul className={styles.list}>
+					{departments.map((item) => (
+						<li className={styles.listItem} key={item.title}>
+							<NavLink to={item.link}>{item.title}</NavLink>
+						</li>
+					))}
 				</ul>
 			</nav>
 		</aside>

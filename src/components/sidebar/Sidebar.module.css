@@ -1,0 +1,31 @@
+.aside {
+	grid-area: aside;
+}
+
+.list {
+	gap: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	align-items: flex-start;
+	padding: 4px 16px;
+}
+
+.listItemActive {
+	border: 1px solid #000;
+}
+
+.listItem a {
+	color: ghostwhite;
+	transition: color 0.3s ease-out;
+}
+
+.listItem a:hover {
+	color: #cba37c;
+}
+
+@media (min-width: 1200px) {
+	.list {
+		flex-direction: column;
+	}
+}
