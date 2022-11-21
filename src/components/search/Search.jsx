@@ -19,7 +19,7 @@ const Search = () => {
 	return (
 		<>
 			<div className={styles.Search}>
-				<input className='search' placeholder='мин 3 символа' onChange={(e) => setQuery(e.target.value.toLowerCase())} />
+				<input type='text' className='search' placeholder='мин 3 символа' onChange={(e) => setQuery(e.target.value.toLowerCase())} />
 			</div>
 			<div className={styles.SearchResults}>
 				<div className='search-results-container'>
