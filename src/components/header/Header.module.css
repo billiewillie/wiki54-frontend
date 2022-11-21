@@ -2,12 +2,9 @@
 	grid-area: header;
 	display: grid;
 	padding: 4px 16px;
-	grid-template-columns: auto 1fr auto;
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
 	align-items: center;
-}
-
-.logo {
-	cursor: pointer;
-	display: inline-block;
+	height: 64px;
+	background-color: #171717;
 }

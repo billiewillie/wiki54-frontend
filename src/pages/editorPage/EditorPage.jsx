@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import Editor from '../../components/editor/Editor';
 
 const EditorPage = () => {
-	return <div>EditorPage</div>;
+	return (
+		<>
+			<p>edit post</p>
+			<Editor />
+		</>
+	);
 };
 
 export default EditorPage;
