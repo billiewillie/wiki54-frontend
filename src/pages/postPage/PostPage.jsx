@@ -15,8 +15,6 @@ const PostPage = () => {
 		fetchData();
 	}, []);
 
-	// const parsedHTML = Parser(data.body);
-
 	return (
 		<>
 			{data && (

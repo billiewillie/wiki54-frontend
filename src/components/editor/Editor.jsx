@@ -1,6 +1,9 @@
-import { useState, useRef } from 'react';
-import ReactQuill from 'react-quill';
+import { useRef } from 'react';
+import ReactQuill, { Quill } from 'react-quill';
+import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
+
+Quill.register('modules/imageResize', ImageResize);
 
 const Editor = ({ data }) => {
 	const editorRef = useRef(null);
@@ -46,33 +49,30 @@ const Editor = ({ data }) => {
 	};
 
 	const insertToEditor = (imageUrl) => {
-		// TODO: get current cursor position and embed there
-		editorRef.current.getEditor().insertEmbed(null, 'image', imageUrl);
-		// console.log(editorRef.current);
+		// range - узнать положение курсора
+		const range = editorRef.current.getEditorSelection().index;
+		editorRef.current.getEditor().insertEmbed(range, 'image', imageUrl);
 	};
-
-	const fullToolbarOptions = [
-		[{ header: [1, 2, 3, false] }],
-		['bold', 'italic', 'underline', 'strike'],
-		[{ color: ['red', 'green', 'blue', 'orange', 'violet', 'white', false] }, { background: [] }],
-		[{ script: 'sub' }, { script: 'super' }],
-		[{ list: 'ordered' }, { list: 'bullet' }],
-		[{ align: ['right', 'center', 'justify'] }],
-		['link', 'image', 'video'],
-	];
 
 	const modules = {
 		toolbar: {
 			container: [
-				[{ header: [1, 2, false] }],
-				['bold', 'italic', 'underline', 'strike', 'blockquote'],
+				[{ header: [1, 2, 3, false] }],
+				['bold', 'italic', 'underline', 'strike'],
+				[{ color: ['red', 'green', 'blue', 'orange', 'violet', 'white', false] }, { background: [] }],
+				[{ script: 'sub' }, { script: 'super' }],
 				[{ list: 'ordered' }, { list: 'bullet' }],
-				['image'],
+				[{ align: ['right', 'center', 'justify'] }],
+				['link', 'image', 'video'],
 			],
 
 			handlers: {
 				image: imageHandler,
 			},
+		},
+		imageResize: {
+			parchment: Quill.import('parchment'),
+			modules: ['Resize', 'DisplaySize', 'Toolbar'],
 		},
 	};
 
