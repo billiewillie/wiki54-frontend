@@ -1,15 +1,54 @@
-import { useRef } from 'react';
-import ReactQuill, { Quill } from 'react-quill';
-import ImageUploader from 'quill-image-uploader';
+import { useState, useRef } from 'react';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-Quill.register('modules/imageUploader', ImageUploader);
+const Editor = ({ data }) => {
+	const editorRef = useRef(null);
+	console.log(data);
 
-const Editor = () => {
-	const editorEl = useRef(null);
+	const imageHandler = (a) => {
+		const input = document.createElement('input');
+		input.setAttribute('type', 'file');
+		input.setAttribute('accept', 'image/*');
+		input.click();
 
-	const handleChange = () => {
-		console.log(editorEl.current.value);
+		input.onchange = () => {
+			const file = input.files[0];
+
+			if (/^image\//.test(file.type)) {
+				saveToServer(file);
+			} else {
+				alert('You could only upload images.');
+			}
+		};
+	};
+
+	const saveToServer = (file) => {
+		return new Promise((resolve, reject) => {
+			const formData = new FormData();
+			formData.append('image', file);
+
+			fetch('http://localhost:4444/upload', {
+				method: 'POST',
+				body: formData,
+			})
+				.then((response) => response.json())
+				.then((result) => {
+					console.log(result);
+					resolve(`http://localhost:4444${result.url}`);
+					insertToEditor(`http://localhost:4444${result.url}`);
+				})
+				.catch((error) => {
+					reject('Upload failed');
+					console.error('Error:', error);
+				});
+		});
+	};
+
+	const insertToEditor = (imageUrl) => {
+		// TODO: get current cursor position and embed there
+		editorRef.current.getEditor().insertEmbed(null, 'image', imageUrl);
+		// console.log(editorRef.current);
 	};
 
 	const fullToolbarOptions = [
@@ -23,27 +62,16 @@ const Editor = () => {
 	];
 
 	const modules = {
-		toolbar: fullToolbarOptions,
-		imageUploader: {
-			upload: (file) => {
-				return new Promise((resolve, reject) => {
-					const formData = new FormData();
-					formData.append('image', file);
+		toolbar: {
+			container: [
+				[{ header: [1, 2, false] }],
+				['bold', 'italic', 'underline', 'strike', 'blockquote'],
+				[{ list: 'ordered' }, { list: 'bullet' }],
+				['image'],
+			],
 
-					fetch('http://localhost:4444/upload', {
-						method: 'POST',
-						body: formData,
-					})
-						.then((response) => response.json())
-						.then((result) => {
-							console.log(result);
-							resolve(`http://localhost:4444${result.url}`);
-						})
-						.catch((error) => {
-							reject('Upload failed');
-							console.error('Error:', error);
-						});
-				});
+			handlers: {
+				image: imageHandler,
 			},
 		},
 	};
@@ -69,7 +97,15 @@ const Editor = () => {
 		'video',
 	];
 
-	return <ReactQuill theme='snow' ref={editorEl} modules={modules} formats={formats} onChange={handleChange} />;
+	const showEditor = () => {
+		console.log(editorRef.current.value);
+	};
+
+	return (
+		<>
+			<ReactQuill ref={editorRef} defaultValue={data.body} theme='snow' modules={modules} formats={formats} onChange={showEditor} />
+		</>
+	);
 };
 
 export default Editor;
