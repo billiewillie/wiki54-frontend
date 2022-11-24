@@ -4,12 +4,16 @@ import styles from './Sidebar.module.css';
 const Sidebar = () => {
 	const departments = [
 		{
-			title: 'studia54',
+			title: 'Студия 54',
 			link: '/studia54',
 		},
 		{
-			title: 'architecture',
+			title: 'Архитекторы',
 			link: '/architecture',
+		},
+		{
+			title: 'Визуализаторы',
+			link: '/visual',
 		},
 	];
 

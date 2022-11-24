@@ -19,7 +19,7 @@ const PostsPage = () => {
 			<h1>Posts</h1>
 			{data.map((post) => (
 				<Link key={post.id} to={`/${department}/${post.id}`}>
-					<p>{post.name}</p>
+					<p>{post.title}</p>
 				</Link>
 			))}
 		</div>

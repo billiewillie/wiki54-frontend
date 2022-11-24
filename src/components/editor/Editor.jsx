@@ -1,15 +1,12 @@
-import { useRef } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
+import { forwardRef } from 'react';
 
 Quill.register('modules/imageResize', ImageResize);
 
-const Editor = ({ data }) => {
-	const editorRef = useRef(null);
-	console.log(data);
-
-	const imageHandler = (a) => {
+const Editor = forwardRef((props, ref) => {
+	const imageHandler = () => {
 		const input = document.createElement('input');
 		input.setAttribute('type', 'file');
 		input.setAttribute('accept', 'image/*');
@@ -50,8 +47,8 @@ const Editor = ({ data }) => {
 
 	const insertToEditor = (imageUrl) => {
 		// range - узнать положение курсора
-		const range = editorRef.current.getEditorSelection().index;
-		editorRef.current.getEditor().insertEmbed(range, 'image', imageUrl);
+		const range = ref.current.getEditorSelection().index;
+		ref.current.getEditor().insertEmbed(range, 'image', imageUrl);
 	};
 
 	const modules = {
@@ -65,7 +62,6 @@ const Editor = ({ data }) => {
 				[{ align: ['right', 'center', 'justify'] }],
 				['link', 'image', 'video'],
 			],
-
 			handlers: {
 				image: imageHandler,
 			},
@@ -97,15 +93,11 @@ const Editor = ({ data }) => {
 		'video',
 	];
 
-	const showEditor = () => {
-		console.log(editorRef.current.value);
-	};
-
 	return (
 		<>
-			<ReactQuill ref={editorRef} defaultValue={data.body} theme='snow' modules={modules} formats={formats} onChange={showEditor} />
+			<ReactQuill ref={ref} defaultValue={props.data.body} theme='snow' modules={modules} formats={formats} />
 		</>
 	);
-};
+});
 
 export default Editor;
