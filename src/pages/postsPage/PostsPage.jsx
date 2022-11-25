@@ -16,12 +16,15 @@ const PostsPage = () => {
 
 	return (
 		<div>
-			<h1>Posts</h1>
+			<h1>Посты</h1>
 			{data.map((post) => (
 				<Link key={post.id} to={`/${department}/${post.id}`}>
 					<p>{post.title}</p>
 				</Link>
 			))}
+			<Link to={`/${department}/createPost`}>
+				<p>Новый пост</p>
+			</Link>
 		</div>
 	);
 };

@@ -21,7 +21,7 @@ const router = createBrowserRouter(
 				<Route path=':department' element={<PostsPage />} />
 				<Route path=':department/:id' element={<PostPage />} />
 				<Route path=':department/:id/edit' element={<EditorPage />} />
-				<Route path='posts/new' element={<CreatePost />} />
+				<Route path=':department/createPost' element={<CreatePost />} />
 				<Route path='*' element={<NotFoundPage />} />
 			</Route>
 		</>

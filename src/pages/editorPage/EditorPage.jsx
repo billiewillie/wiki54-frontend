@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from '../../axios';
 import ReactQuill, { Quill } from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
@@ -11,6 +11,8 @@ const EditorPage = () => {
 	const [data, setData] = useState('');
 	const { department, id } = useParams();
 	const editorRef = useRef(null);
+	const titleRef = useRef(null);
+	let navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -65,14 +67,12 @@ const EditorPage = () => {
 		editorRef.current.getEditor().insertEmbed(range, 'image', imageUrl);
 	};
 
-	const buttonHandler = async () => {
-		try {
-			await axios.put(`/${department}/${id}`, {
-				body: editorRef.current.value,
-			});
-		} catch (err) {
-			console.log(err);
-		}
+	const buttonHandler = () => {
+		axios.post(`/${department}/${id}`, {
+			title: titleRef.current.value,
+			body: editorRef.current.value,
+		});
+		navigate(-1);
 	};
 
 	const modules = {
@@ -119,9 +119,9 @@ const EditorPage = () => {
 
 	return (
 		<>
-			{data && <p>{data.title}</p>}
+			{data && <input type='text' defaultValue={data.title} ref={titleRef} />}
 			{data && <ReactQuill ref={editorRef} value={data.body} theme='snow' modules={modules} formats={formats} />}
-			<button onClick={buttonHandler}>Save</button>
+			<button onClick={buttonHandler}>Сохранить</button>
 		</>
 	);
 };
