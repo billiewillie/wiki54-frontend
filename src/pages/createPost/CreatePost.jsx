@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from '../../axios';
 import ReactQuill, { Quill } from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
+
+import axios from '../../axios';
 
 Quill.register('modules/imageResize', ImageResize);
 
