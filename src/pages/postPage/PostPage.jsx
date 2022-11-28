@@ -9,7 +9,7 @@ const PostPage = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/${department}/${id}`);
+			const { data } = await axios.get(`/api/posts/${department}/${id}`);
 			setData(data);
 		};
 		fetchData();

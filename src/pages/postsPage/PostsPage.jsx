@@ -8,17 +8,17 @@ const PostsPage = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/${department}`);
+			const { data } = await axios.get(`/api/posts/${department}`);
 			setData(data);
 		};
 		fetchData();
-	}, [data]);
+	}, [department]);
 
 	return (
 		<div>
 			<h1>Посты</h1>
 			{data.map((post) => (
-				<Link key={post.id} to={`/${department}/${post.id}`}>
+				<Link key={post._id} to={`/${department}/${post._id}`}>
 					<p>{post.title}</p>
 				</Link>
 			))}
