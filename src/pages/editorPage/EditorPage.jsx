@@ -16,7 +16,7 @@ const EditorPage = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/${department}/${id}/edit`);
+			const { data } = await axios.get(`/posts/${department}/${id}`);
 			setData(data);
 		};
 		fetchData();
@@ -68,7 +68,7 @@ const EditorPage = () => {
 	};
 
 	const buttonHandler = () => {
-		axios.post(`/${department}/${id}`, {
+		axios.patch(`/posts/${department}/${id}`, {
 			title: titleRef.current.value,
 			body: editorRef.current.value,
 		});

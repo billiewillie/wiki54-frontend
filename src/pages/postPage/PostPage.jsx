@@ -9,7 +9,7 @@ const PostPage = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/api/posts/${department}/${id}`);
+			const { data } = await axios.get(`/posts/${department}/${id}`);
 			setData(data);
 		};
 		fetchData();
@@ -21,7 +21,7 @@ const PostPage = () => {
 				<div className='post'>
 					<h2>{data.title}</h2>
 					<div>{Parser(data.body)}</div>
-					<Link to={`/${department}/${id}/edit`}>Edit this post</Link>
+					<Link to={`/${department}/${id}/edit`}>Редактировать пост</Link>
 				</div>
 			)}
 		</>

@@ -59,9 +59,10 @@ const CreatePost = () => {
 	};
 
 	const buttonHandler = () => {
-		axios.post(`/${department}/createPost`, {
+		axios.post(`/posts/${department}`, {
 			title: titleRef.current.value,
 			body: editorRef.current.value,
+			department,
 		});
 		navigate(`/${department}`);
 	};

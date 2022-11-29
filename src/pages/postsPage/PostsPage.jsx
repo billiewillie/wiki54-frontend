@@ -8,7 +8,7 @@ const PostsPage = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`/api/posts/${department}`);
+			const { data } = await axios.get(`/posts/${department}`);
 			setData(data);
 		};
 		fetchData();
