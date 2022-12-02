@@ -34,7 +34,6 @@ const Editor = forwardRef((props, ref) => {
 			})
 				.then((response) => response.json())
 				.then((result) => {
-					console.log(result);
 					resolve(`http://localhost:4444${result.url}`);
 					insertToEditor(`http://localhost:4444${result.url}`);
 				})

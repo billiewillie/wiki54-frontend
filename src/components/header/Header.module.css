@@ -8,3 +8,8 @@
 	height: 64px;
 	background-color: #171717;
 }
+
+.Login {
+	cursor: pointer;
+	color: #cba37c;
+}
