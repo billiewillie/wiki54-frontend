@@ -10,7 +10,7 @@ const userSlice = createSlice({
 			state.user.firstName = action.payload.firstName;
 			state.user.lastName = action.payload.lastName;
 			state.user.email = action.payload.email;
-			state.user.role = action.payload.role;
+			state.user.isAdmin = action.payload.isAdmin;
 			state.user.departments = action.payload.departments;
 			state.user.isMapOpened = action.payload.isMapOpened;
 		},

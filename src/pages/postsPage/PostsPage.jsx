@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import axios from '../../axios';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
+import axios from '../../axios';
+
 const PostsPage = () => {
-	const [data, setData] = useState([]);
 	const { department } = useParams();
+	const [data, setData] = useState([]);
+	const user = useSelector((state) => state.user.user);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -22,9 +25,11 @@ const PostsPage = () => {
 					<p>{post.title}</p>
 				</Link>
 			))}
-			<Link to={`/${department}/createPost`}>
-				<p>Новый пост</p>
-			</Link>
+			{user.isAdmin && (
+				<Link to={`/${department}/createPost`}>
+					<p>Новый пост</p>
+				</Link>
+			)}
 		</div>
 	);
 };

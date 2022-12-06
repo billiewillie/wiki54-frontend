@@ -16,7 +16,7 @@ const Sidebar = () => {
 					))}
 					{user?.isMapOpened && (
 						<li className={styles.listItem}>
-							<NavLink to='/map'>Карта офиса</NavLink>
+							<NavLink to='/mapOffice'>Карта офиса</NavLink>
 						</li>
 					)}
 				</ul>

@@ -9,10 +9,12 @@ import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import PostsPage from './pages/postsPage/PostsPage';
 import CreatePost from './pages/createPost/CreatePost';
 import EditorPage from './pages/editorPage/EditorPage';
+import MapOffice from './pages/mapOffice/mapOffice';
 import { Provider } from 'react-redux';
 import store from './store';
 
 import RequireAuth from './hoc/RequireAuth';
+import RequireAdmin from './hoc/RequireAdmin';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -34,9 +36,31 @@ const router = createBrowserRouter(
 						</RequireAuth>
 					}
 				/>
-				<Route path=':department/:id' element={<PostPage />} />
-				<Route path=':department/:id/edit' element={<EditorPage />} />
-				<Route path=':department/createPost' element={<CreatePost />} />
+				<Route
+					path=':department/:id'
+					element={
+						<RequireAuth>
+							<PostPage />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path=':department/:id/edit'
+					element={
+						<RequireAdmin>
+							<EditorPage />
+						</RequireAdmin>
+					}
+				/>
+				<Route
+					path=':department/createPost'
+					element={
+						<RequireAdmin>
+							<CreatePost />
+						</RequireAdmin>
+					}
+				/>
+				<Route path='mapOffice' element={<MapOffice />} />
 				<Route path='login' element={<LoginPage />} />
 				<Route path='*' element={<NotFoundPage />} />
 			</Route>
