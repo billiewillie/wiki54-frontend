@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Parser from 'html-react-parser';
 import axios from '../../axios';
 import styles from './Search.module.css';
 
@@ -15,6 +16,8 @@ const Search = () => {
 			fetchData();
 		} else setData([]);
 	}, [query]);
+
+	console.log(data);
 
 	return (
 		<>
@@ -33,10 +36,9 @@ const Search = () => {
 					<div className='search-results-items'>
 						{data &&
 							data.map((item) => (
-								<div key={item.id} style={{ display: ' ', columnGap: '10px' }}>
-									<div>{item.name}</div>
-									<div>{item.surname}</div>
-									<div>{item.email}</div>
+								<div key={item._id}>
+									<div>{item.title}</div>
+									<div>{item.body}</div>
 								</div>
 							))}
 					</div>
