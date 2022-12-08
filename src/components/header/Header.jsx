@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
 import { removeUser } from '../../store/userSlice';
 import Search from '../search/Search';
 import styles from './Header.module.css';

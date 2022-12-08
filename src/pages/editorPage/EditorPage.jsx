@@ -1,26 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from '../../axios';
 import ReactQuill, { Quill } from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
 
+import { editPost } from '../../store/postSlice';
+
 Quill.register('modules/imageResize', ImageResize);
 
 const EditorPage = () => {
-	const [data, setData] = useState('');
 	const { department, id } = useParams();
+	const dispatch = useDispatch();
 	const editorRef = useRef(null);
 	const titleRef = useRef(null);
 	let navigate = useNavigate();
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const { data } = await axios.get(`/posts/${department}/${id}`);
-			setData(data);
-		};
-		fetchData();
-	}, []);
+	const [post] = useSelector((state) => state.posts.posts.filter((post) => post._id === id));
 
 	const imageHandler = () => {
 		const input = document.createElement('input');
@@ -68,10 +64,17 @@ const EditorPage = () => {
 	};
 
 	const buttonHandler = () => {
-		axios.patch(`/posts/${department}/${id}`, {
-			title: titleRef.current.value,
-			body: editorRef.current.value,
-		});
+		dispatch(
+			editPost({
+				id,
+				department,
+				title: titleRef.current.value,
+				body: editorRef.current.value,
+			})
+		);
+	};
+
+	const backHandler = () => {
 		navigate(-1);
 	};
 
@@ -119,9 +122,10 @@ const EditorPage = () => {
 
 	return (
 		<>
-			{data && <input type='text' defaultValue={data.title} ref={titleRef} />}
-			{data && <ReactQuill ref={editorRef} value={data.body} theme='snow' modules={modules} formats={formats} />}
+			{post && <input type='text' defaultValue={post.title} ref={titleRef} />}
+			{post && <ReactQuill ref={editorRef} value={post.body} theme='snow' modules={modules} formats={formats} />}
 			<button onClick={buttonHandler}>Сохранить</button>
+			<button onClick={backHandler}>back</button>
 		</>
 	);
 };
