@@ -46,7 +46,6 @@ const EditorPage = () => {
 			})
 				.then((response) => response.json())
 				.then((result) => {
-					console.log(result);
 					resolve(`http://localhost:4444${result.url}`);
 					insertToEditor(`http://localhost:4444${result.url}`);
 				})
@@ -72,9 +71,6 @@ const EditorPage = () => {
 				body: editorRef.current.value,
 			})
 		);
-	};
-
-	const backHandler = () => {
 		navigate(-1);
 	};
 
@@ -125,7 +121,6 @@ const EditorPage = () => {
 			{post && <input type='text' defaultValue={post.title} ref={titleRef} />}
 			{post && <ReactQuill ref={editorRef} value={post.body} theme='snow' modules={modules} formats={formats} />}
 			<button onClick={buttonHandler}>Сохранить</button>
-			<button onClick={backHandler}>back</button>
 		</>
 	);
 };

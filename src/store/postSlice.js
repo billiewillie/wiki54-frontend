@@ -10,12 +10,24 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (department
 	}
 });
 
-export const editPost = createAsyncThunk('posts/editPost', async ({ id, department, title, body }, { rejectWithValue }) => {
+export const createPost = createAsyncThunk('posts/createPost', async ({ department, title, body }, { rejectWithValue }) => {
 	try {
-		axios.patch(`/posts/${department}/${id}`, {
+		await axios.patch(`/posts/${department}`, {
 			title,
 			body,
 		});
+	} catch (error) {
+		return rejectWithValue(error.message);
+	}
+});
+
+export const editPost = createAsyncThunk('posts/editPost', async ({ id, department, title, body }, { rejectWithValue }) => {
+	try {
+		const { data } = await axios.patch(`/posts/${department}/${id}`, {
+			title,
+			body,
+		});
+		return data;
 	} catch (error) {
 		return rejectWithValue(error.message);
 	}
@@ -53,15 +65,24 @@ const postSlice = createSlice({
 			state.error = null;
 		});
 		builder.addCase(editPost.fulfilled, (state, action) => {
-			console.log(action);
-			// const objIndex = state.posts.findIndex((obj) => obj._id === action.payload.id);
-			// state.status = 'resolved';
-			// state.error = null;
-			// state.posts[objIndex].title = action.payload.title;
-			// state.posts[objIndex].body = action.payload.body;
-			// state.posts.splice(index, 1);
+			const objIndex = state.posts.findIndex((obj) => obj._id === action.payload._id);
+			state.status = 'resolved';
+			state.error = null;
+			state.posts[objIndex].title = action.payload.title;
+			state.posts[objIndex].body = action.payload.body;
 		});
 		builder.addCase(editPost.rejected, (state, action) => {
+			setError(state, action);
+		});
+		builder.addCase(createPost.pending, (state) => {
+			state.status = 'loading';
+			state.error = null;
+		});
+		builder.addCase(createPost.fulfilled, (state) => {
+			state.status = 'resolved';
+			state.error = null;
+		});
+		builder.addCase(createPost.rejected, (state, action) => {
 			setError(state, action);
 		});
 	},

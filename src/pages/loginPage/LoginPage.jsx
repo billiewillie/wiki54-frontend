@@ -1,25 +1,28 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getUser } from '../../store/userSlice';
-import axios from '../../axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn } from '../../store/userSlice';
+import { useEffect } from 'react';
 
 const LoginPage = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();
 	const fromPage = location.state?.from?.pathname || '/';
+	const status = useSelector((state) => state.user.status);
 
 	const formHandler = async (e) => {
 		e.preventDefault();
 		const email = e.target.email.value;
 		const password = e.target.password.value;
-		const { data } = await axios.post(`/users/login`, {
-			email,
-			password,
-		});
-		dispatch(getUser(data));
-		navigate(fromPage, { replace: true });
+
+		dispatch(logIn({ email, password }));
 	};
+
+	useEffect(() => {
+		if (status === 'resolved') {
+			navigate(fromPage, { replace: true });
+		}
+	}, [status]);
 
 	return (
 		<div className='LoginPage'>

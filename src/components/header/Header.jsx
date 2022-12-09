@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { removeUser } from '../../store/userSlice';
+import { logOut } from '../../store/userSlice';
 import Search from '../search/Search';
 import styles from './Header.module.css';
 import Logo from '../logo/Logo';
@@ -10,7 +10,7 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const logoutHandler = () => {
-		dispatch(removeUser());
+		dispatch(logOut());
 		navigate('/login');
 	};
 

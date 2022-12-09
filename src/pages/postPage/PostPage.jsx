@@ -7,8 +7,6 @@ const PostPage = () => {
 	const user = useSelector((state) => state.user.user);
 	const [post] = useSelector((state) => state.posts.posts.filter((post) => post._id === id));
 
-	console.log(post);
-
 	return (
 		<>
 			{post && (
