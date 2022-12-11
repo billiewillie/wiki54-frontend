@@ -7,11 +7,15 @@ export const logIn = createAsyncThunk('user/logIn', async ({ email, password }, 
 			email,
 			password,
 		});
-		console.log(data);
 		return data;
 	} catch (error) {
 		return rejectWithValue(error.message);
 	}
+});
+
+export const getMe = createAsyncThunk('user/getMe', async () => {
+	const { data } = await axios.get('/users/me');
+	return data;
 });
 
 const initialState = {
@@ -33,6 +37,7 @@ const userSlice = createSlice({
 			state.user = {};
 			state.status = 'loading';
 			state.error = null;
+			window.localStorage.removeItem('token');
 		},
 	},
 	extraReducers: (builder) => {
@@ -51,8 +56,23 @@ const userSlice = createSlice({
 		builder.addCase(logIn.rejected, (state, action) => {
 			setError(state, action);
 		});
+
+		builder.addCase(getMe.pending, (state) => {
+			state.status = 'loading';
+			state.error = null;
+		});
+		builder.addCase(getMe.fulfilled, (state, action) => {
+			state.status = 'resolved';
+			state.error = null;
+			state.user = action.payload;
+		});
+		builder.addCase(getMe.rejected, (state, action) => {
+			setError(state, action);
+		});
 	},
 });
+
+export const selectIsAuth = (state) => Boolean(state.user.email);
 
 export const { logOut } = userSlice.actions;
 

@@ -1,6 +1,8 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
+import { getMe, selectIsAuth } from './store/userSlice';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/homePage/HomePage';
 import LoginPage from './pages/loginPage/LoginPage';
@@ -10,11 +12,9 @@ import PostsPage from './pages/postsPage/PostsPage';
 import CreatePost from './pages/createPost/CreatePost';
 import EditorPage from './pages/editorPage/EditorPage';
 import MapOffice from './pages/mapOffice/mapOffice';
-import { Provider } from 'react-redux';
-import store from './store';
-
 import RequireAuth from './hoc/RequireAuth';
 import RequireAdmin from './hoc/RequireAdmin';
+import { useEffect } from 'react';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -69,12 +69,16 @@ const router = createBrowserRouter(
 );
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getMe());
+	}, []);
+
 	return (
-		<Provider store={store}>
-			<div className='App'>
-				<RouterProvider router={router} />
-			</div>
-		</Provider>
+		<div className='App'>
+			<RouterProvider router={router} />
+		</div>
 	);
 }
 
