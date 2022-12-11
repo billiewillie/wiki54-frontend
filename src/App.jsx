@@ -1,8 +1,8 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import './App.css';
-import { getMe, selectIsAuth } from './store/userSlice';
+import { getMe } from './store/userSlice';
 import Layout from './components/layout/Layout';
 import HomePage from './pages/homePage/HomePage';
 import LoginPage from './pages/loginPage/LoginPage';

@@ -14,7 +14,8 @@ const Search = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data } = await axios.get(`/?q=${query}`);
-			setData(data);
+			const filteredPosts = data.filter((post) => user.departments.includes(post.department));
+			setData(filteredPosts);
 		};
 		if (query.length > 2) {
 			fetchData();
@@ -46,8 +47,6 @@ const Search = () => {
 									<div key={item._id}>
 										<Highlighter highlightClassName='YourHighlightClass' searchWords={[query]} autoEscape={true} textToHighlight={item.title} />
 										<Highlighter highlightClassName='YourHighlightClass' searchWords={[query]} autoEscape={true} textToHighlight={item.body} />
-										{/* <div>{item.title}</div>
-									<div>{item.body}</div> */}
 									</div>
 								))}
 						</div>
