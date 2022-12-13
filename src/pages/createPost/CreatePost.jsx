@@ -1,14 +1,16 @@
 import React, { useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import ReactQuill, { Quill } from 'react-quill';
+import { useNavigate, useParams } from 'react-router-dom';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
 
-import axios from '../../axios';
+import { createPost } from '../../store/postSlice';
 
 Quill.register('modules/imageResize', ImageResize);
 
 const CreatePost = () => {
+	const dispatch = useDispatch();
 	const { department } = useParams();
 	const editorRef = useRef(null);
 	const titleRef = useRef(null);
@@ -59,11 +61,14 @@ const CreatePost = () => {
 	};
 
 	const buttonHandler = () => {
-		axios.post(`/posts/${department}`, {
-			title: titleRef.current.value,
-			body: editorRef.current.value,
-			department,
-		});
+		dispatch(
+			createPost({
+				department,
+				title: titleRef.current.value,
+				body: editorRef.current.value,
+				tags: [],
+			})
+		);
 		navigate(`/${department}`);
 	};
 

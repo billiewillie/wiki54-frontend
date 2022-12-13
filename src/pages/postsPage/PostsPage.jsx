@@ -23,11 +23,11 @@ const PostsPage = () => {
 						<p>{post.title}</p>
 					</Link>
 				))}
-			{/* {user.isAdmin && (
+			{user.isAdmin && (
 				<Link to={`/${department}/createPost`}>
 					<p>Новый пост</p>
 				</Link>
-			)} */}
+			)}
 		</div>
 	);
 };

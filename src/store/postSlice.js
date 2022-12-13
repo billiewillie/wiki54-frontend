@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
 import axios from '../axios';
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (department, { rejectWithValue }) => {
@@ -10,12 +11,15 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (department
 	}
 });
 
-export const createPost = createAsyncThunk('posts/createPost', async ({ department, title, body }, { rejectWithValue }) => {
+export const createPost = createAsyncThunk('posts/createPost', async ({ department, title, body, tags }, { rejectWithValue }) => {
 	try {
-		await axios.patch(`/posts/${department}`, {
+		const { data } = await axios.post(`/posts/${department}`, {
+			department,
 			title,
 			body,
+			tags,
 		});
+		return data;
 	} catch (error) {
 		return rejectWithValue(error.message);
 	}
@@ -78,9 +82,10 @@ const postSlice = createSlice({
 			state.status = 'loading';
 			state.error = null;
 		});
-		builder.addCase(createPost.fulfilled, (state) => {
+		builder.addCase(createPost.fulfilled, (state, action) => {
 			state.status = 'resolved';
 			state.error = null;
+			state.posts.push(action.payload);
 		});
 		builder.addCase(createPost.rejected, (state, action) => {
 			setError(state, action);
