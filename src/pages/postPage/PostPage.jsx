@@ -1,7 +1,10 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import Parser from 'html-react-parser';
 import { useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
+
+import TableOfContent from '../../components/tableOfContent/TableOfContent';
+import styles from './PostPage.module.css';
 
 const PostPage = () => {
 	const location = useLocation();
@@ -39,8 +42,9 @@ const PostPage = () => {
 	return (
 		<>
 			{post && (
-				<div className='post'>
-					<h2>{post.title}</h2>
+				<div className={styles.post}>
+					<h1>{post.title}</h1>
+					<TableOfContent />
 					<Result />
 					{user.isAdmin && <Link to={`/${department}/${id}/edit`}>Редактировать пост</Link>}
 				</div>

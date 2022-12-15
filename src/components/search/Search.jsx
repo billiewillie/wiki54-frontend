@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import Highlighter from 'react-highlight-words';
+
 import axios from '../../axios';
 import styles from './Search.module.css';
 

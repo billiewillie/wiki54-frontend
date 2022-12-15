@@ -77,7 +77,7 @@ const EditorPage = () => {
 	const modules = {
 		toolbar: {
 			container: [
-				[{ header: [1, 2, 3, false] }],
+				[{ header: [2, false] }],
 				['bold', 'italic', 'underline', 'strike'],
 				[{ color: ['red', 'green', 'blue', 'orange', 'violet', 'white', false] }, { background: [] }],
 				[{ script: 'sub' }, { script: 'super' }],

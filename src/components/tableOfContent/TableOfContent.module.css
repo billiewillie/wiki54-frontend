@@ -1,0 +1,23 @@
+.nav {
+	position: fixed;
+	right: 0;
+	width: 220px;
+	min-width: 220px;
+	padding: 16px;
+	top: 100px;
+	max-height: calc(100vh - 70px);
+	overflow: auto;
+}
+
+.nav ul li {
+	margin-bottom: 15px;
+}
+
+.head3 {
+	margin-left: 10px;
+	list-style-type: circle;
+}
+.head4 {
+	margin-left: 20px;
+	list-style-type: square;
+}
