@@ -7,12 +7,11 @@ const TableOfContent = () => {
 	const { activeId } = useHeadsObserver();
 
 	useEffect(() => {
-		const elements = Array.from(document.querySelectorAll('h2, h3, h4')).map((elem) => ({
+		const elements = Array.from(document.querySelectorAll('h2, h3')).map((elem) => ({
 			id: elem.id,
 			text: elem.innerText,
 			level: Number(elem.nodeName.charAt(1)),
 		}));
-		console.log(elements);
 		setHeadings(elements);
 	}, []);
 
@@ -22,8 +21,6 @@ const TableOfContent = () => {
 				return 'head2';
 			case 3:
 				return 'head3';
-			case 4:
-				return 'head4';
 			default:
 				return null;
 		}

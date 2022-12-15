@@ -44,8 +44,8 @@ const PostPage = () => {
 			{post && (
 				<div className={styles.post}>
 					<h1>{post.title}</h1>
-					<TableOfContent />
 					<Result />
+					<TableOfContent />
 					{user.isAdmin && <Link to={`/${department}/${id}/edit`}>Редактировать пост</Link>}
 				</div>
 			)}

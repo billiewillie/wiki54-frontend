@@ -61,11 +61,16 @@ const CreatePost = () => {
 	};
 
 	const buttonHandler = () => {
+		const elements = Array.from(document.querySelectorAll('h2'));
+		elements.forEach((element) => {
+			element.setAttribute('id', `id${(Math.random() + 1).toString(36).substring(7)}`);
+		});
+		const content = document.querySelector('.ql-editor').innerHTML;
 		dispatch(
 			createPost({
 				department,
 				title: titleRef.current.value,
-				body: editorRef.current.value,
+				body: content,
 				tags: [],
 			})
 		);
