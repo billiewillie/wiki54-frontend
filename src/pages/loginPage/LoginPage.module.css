@@ -1,0 +1,23 @@
+.LoginPage form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.LoginPage input,
+.LoginPage button {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.LoginPage input {
+	padding: 10px;
+}
+
+.LoginPage button {
+	border-radius: 0;
+	color: #fff;
+	background-color: #1976d2 !important;
+	border-color: #1976d2 !important;
+}

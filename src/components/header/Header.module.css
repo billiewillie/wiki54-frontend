@@ -1,5 +1,7 @@
 .header {
 	grid-area: header;
+	position: fixed;
+	width: 100%;
 	display: grid;
 	padding: 4px 16px;
 	grid-template-columns: repeat(3, 1fr);
@@ -7,9 +9,13 @@
 	align-items: center;
 	height: 64px;
 	background-color: #171717;
+	box-sizing: border-box;
+	z-index: 1;
 }
 
 .Login {
+	display: flex;
+	justify-content: flex-end;
 	cursor: pointer;
 	color: #cba37c;
 }

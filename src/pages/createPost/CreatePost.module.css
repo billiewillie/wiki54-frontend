@@ -1,0 +1,19 @@
+.CreatePost {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	width: 70%;
+}
+
+.CreatePostInput {
+	padding: 20px;
+}
+
+.CreatePostButton {
+	margin-top: 60px;
+	align-self: flex-start;
+	border-radius: 0;
+	color: #fff;
+	background-color: #1976d2 !important;
+	border-color: #1976d2 !important;
+}

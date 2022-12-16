@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
 
+import styles from './CreatePost.module.css';
 import { createPost } from '../../store/postSlice';
 
 Quill.register('modules/imageResize', ImageResize);
@@ -120,11 +121,13 @@ const CreatePost = () => {
 	];
 
 	return (
-		<>
-			<input type='text' ref={titleRef} />
+		<div className={styles.CreatePost}>
+			<input type='text' ref={titleRef} placeholder='Введите заголовок' className={styles.CreatePostInput} />
 			<ReactQuill ref={editorRef} theme='snow' modules={modules} formats={formats} />
-			<button onClick={buttonHandler}>Сохранить</button>
-		</>
+			<button onClick={buttonHandler} className={styles.CreatePostButton}>
+				Сохранить
+			</button>
+		</div>
 	);
 };
 

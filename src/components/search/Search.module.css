@@ -21,23 +21,39 @@
 	display: flex;
 	justify-content: center;
 	position: fixed;
-	top: 72px;
+	top: 64px;
 	left: 0;
 	height: 100vh;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.9);
 	color: #fff;
 	overflow-y: scroll;
+	padding-top: 20px;
 }
 
 .SearchResultsContainer {
 	max-width: 600px;
 }
 
+.SearchResultsItems {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
 .SearchResultsItems a {
 	display: flex;
 	flex-direction: column;
 	color: #fff;
+}
+
+.SearchResultsItems a span:first-child {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.SearchResultsItems a span:last-child {
+	font-size: 16px;
 }
 
 .SearchResultsItems a:hover {

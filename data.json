@@ -1,20 +1,14 @@
 [
 	{
-		"title": "first article",
-		"body": "<p>article about studia 54</p>",
-		"tags": ["tag1", "tag2", "tag3"],
-		"department": "studia54"
-	},
-	{
-		"title": "first article about architecture",
-		"body": "<p>article about architecture</p>",
-		"tags": ["tag1", "tag2", "tag3"],
-		"department": "architecture"
-	},
-	{
-		"title": "first article about visual",
-		"body": "<p>article about visual</p>",
-		"tags": ["tag1", "tag2", "tag3"],
-		"department": "visual"
+		"firstName": "Игорь",
+		"lastName": "У",
+		"email": "igor.u@studia54.com",
+		"password": "igor.u@studia54.com",
+		"departments": ["studia54"],
+		"isAdmin": true,
+		"isMapOpened": true,
+		"line": 26,
+		"place": 6,
+		"photo": "http://localhost:4444/uploads/evgenia_pavlenko.jpg"
 	}
 ]

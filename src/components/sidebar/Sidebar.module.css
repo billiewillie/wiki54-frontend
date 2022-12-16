@@ -1,6 +1,11 @@
 .aside {
 	grid-area: aside;
+	position: fixed;
+	top: 64px;
+	height: 100%;
 	background-color: #171717;
+	z-index: 1;
+	width: 180px;
 }
 
 .list {

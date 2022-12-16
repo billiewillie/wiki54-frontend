@@ -11,7 +11,7 @@ import NotFoundPage from './pages/notFoundPage/NotFoundPage';
 import PostsPage from './pages/postsPage/PostsPage';
 import CreatePost from './pages/createPost/CreatePost';
 import EditorPage from './pages/editorPage/EditorPage';
-import MapOffice from './pages/mapOffice/mapOffice';
+import MapOffice from './pages/mapOffice/MapOffice';
 import RequireAuth from './hoc/RequireAuth';
 import RequireAdmin from './hoc/RequireAdmin';
 import { useEffect } from 'react';

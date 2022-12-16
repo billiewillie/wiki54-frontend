@@ -1,0 +1,23 @@
+.MapOffice {
+	position: relative;
+	overflow: scroll;
+}
+
+.Img {
+	display: block;
+	position: relative;
+	max-width: none;
+}
+
+.Card {
+	position: fixed;
+	bottom: 0;
+	z-index: 1;
+	width: 180px;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.Card p {
+	padding-left: 8px;
+}

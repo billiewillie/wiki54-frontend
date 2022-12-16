@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn } from '../../store/userSlice';
 import { useEffect } from 'react';
+import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
 	const dispatch = useDispatch();
@@ -25,19 +26,17 @@ const LoginPage = () => {
 	}, [status]);
 
 	return (
-		<div className='LoginPage'>
+		<div className={styles.LoginPage}>
 			<h1>Данные для входа</h1>
 			<form action='' onSubmit={formHandler}>
 				<div className='form-row'>
-					<label htmlFor='form-email'>email</label>
-					<input id='form-email' type='email' name='email' />
+					<input id='form-email' type='email' name='email' placeholder='Email' />
 				</div>
 				<div className='form-row'>
-					<label htmlFor='form-password'>пароль</label>
-					<input id='form-password' name='password' type='password' />
+					<input id='form-password' name='password' type='password' placeholder='Password' />
 				</div>
 				<div className='form-row'>
-					<button type='submit'>Submit</button>
+					<button type='submit'>Log In</button>
 				</div>
 			</form>
 		</div>
