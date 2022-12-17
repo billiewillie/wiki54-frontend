@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { logOut } from '../../store/userSlice';
+import Logo from '../logo/Logo';
 import Search from '../search/Search';
 import styles from './Header.module.css';
-import Logo from '../logo/Logo';
+import { logOut } from '../../store/userSlice';
 
 const Header = () => {
 	const dispatch = useDispatch();

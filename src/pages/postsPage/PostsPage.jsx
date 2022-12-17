@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-
 import { fetchPosts } from '../../store/postSlice';
 
 const PostsPage = () => {
@@ -25,7 +24,7 @@ const PostsPage = () => {
 				))}
 			{user.isAdmin && (
 				<Link to={`/${department}/createPost`}>
-					<p>Новый пост</p>
+					d<p>Новый пост</p>
 				</Link>
 			)}
 		</div>
