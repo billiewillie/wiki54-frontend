@@ -39,13 +39,23 @@
 }
 
 .boss1 {
-	top: 18%;
+	top: 20%;
 	left: 1%;
+	width: 10%;
+	height: 20%;
 }
 
 .boss2 {
-	top: 16%;
+	top: 50%;
 	left: 1%;
+	width: 10%;
+	height: 20%;
+}
+
+.duo {
+	position: absolute;
+	width: 30%;
+	height: 50%;
 }
 
 .quadro {
@@ -58,6 +68,18 @@
 	position: absolute;
 	width: 10%;
 	height: 30%;
+}
+
+.eight {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.ten {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 .quadro .Table {
@@ -81,25 +103,75 @@
 	border: 1px solid #000;
 }
 
+.duo .Table {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+}
+
+.gradeTop {
+	position: absolute;
+	top: 30%;
+	left: 0;
+	width: 10%;
+	height: 15%;
+}
+
 .gradeA {
 	position: absolute;
 	top: 15%;
-	right: 0;
+	right: 10px;
 	transform: rotate(-5deg);
-	border: 1px solid #000;
 	width: 90%;
 	height: 15%;
 }
 
 .gradeB {
 	position: absolute;
-	top: 0%;
-	right: 0%;
-	transform: rotate(-5deg);
-	transform-origin: 100% 100%;
-	border: 1px solid #000;
-	width: 50%;
-	height: 15%;
+	top: 53%;
+	left: 23%;
+	width: 13%;
+	height: 10%;
+}
+
+.gradeC {
+	position: absolute;
+	top: 53%;
+	left: 50%;
+	width: 23%;
+	height: 10%;
+}
+
+.gradeD {
+	position: absolute;
+	top: 30%;
+	right: 10px;
+	width: 20%;
+	height: 7%;
+}
+
+.gradeE {
+	position: absolute;
+	top: 40%;
+	right: 10px;
+	width: 20%;
+	height: 7%;
+}
+
+.gradeF {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	width: 20%;
+	height: 7%;
+}
+
+.gradeG {
+	position: absolute;
+	top: 60%;
+	right: 10px;
+	width: 20%;
+	height: 3%;
 }
 
 .gradeA .quadro {
@@ -109,7 +181,6 @@
 
 .gradeA .triple {
 	width: 5%;
-
 	height: 100%;
 }
 
@@ -118,7 +189,14 @@
 }
 
 .gradeB .quadro {
-	height: 66.66%;
+	height: 100%;
+	width: 30%;
+}
+
+.gradeG .five {
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 .gradeA .quadro:nth-child(1) {
@@ -167,6 +245,54 @@
 
 .gradeA .triple:nth-child(12) {
 	left: 93%;
+}
+
+.gradeB .duo:nth-child(1) {
+	left: 0%;
+	top: 25%;
+}
+
+.gradeB .quadro:nth-child(2) {
+	right: 35%;
+}
+
+.gradeB .quadro:last-child {
+	right: 0;
+}
+
+.gradeC .duo:nth-child(1) {
+	top: 25%;
+	width: 10%;
+	left: 0;
+}
+
+.gradeC .quadro:nth-child(2) {
+	left: 18%;
+}
+
+.gradeC .quadro:nth-child(3) {
+	left: 36%;
+}
+
+.gradeC .quadro:nth-child(4) {
+	left: 54%;
+}
+
+.gradeC .quadro:nth-child(5) {
+	right: 18%;
+}
+
+.gradeC .quadro:last-child {
+	right: 0;
+}
+
+.duo1 {
+	top: 0%;
+	left: 0%;
+}
+.duo2 {
+	top: 0%;
+	left: 50%;
 }
 
 .quadro1 {
@@ -222,4 +348,165 @@
 .triple6 {
 	top: 66.66%;
 	left: 50%;
+}
+
+.eight1 {
+	top: 0;
+	left: 0%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight2 {
+	top: 0;
+	left: 25%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight3 {
+	top: 0;
+	left: 50%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight4 {
+	top: 0;
+	left: 75%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight5 {
+	top: 50%;
+	left: 0%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight6 {
+	top: 50%;
+	left: 25%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight7 {
+	top: 50%;
+	left: 50%;
+	width: 25%;
+	height: 50%;
+}
+
+.eight8 {
+	top: 50%;
+	left: 75%;
+	width: 25%;
+	height: 50%;
+}
+
+.ten1 {
+	top: 0%;
+	left: 0;
+	width: 20%;
+	height: 50%;
+}
+
+.ten2 {
+	top: 0%;
+	left: 20%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten3 {
+	top: 0%;
+	left: 40%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten4 {
+	top: 0%;
+	left: 60%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten5 {
+	top: 0%;
+	left: 80%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten6 {
+	top: 50%;
+	left: 0;
+	width: 20%;
+	height: 50%;
+}
+
+.ten7 {
+	top: 50%;
+	left: 20%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten8 {
+	top: 50%;
+	left: 40%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten9 {
+	top: 50%;
+	left: 60%;
+	width: 20%;
+	height: 50%;
+}
+
+.ten10 {
+	top: 50%;
+	left: 80%;
+	width: 20%;
+	height: 50%;
+}
+
+.five1 {
+	top: 0%;
+	left: 0%;
+	width: 20%;
+	height: 100%;
+}
+
+.five2 {
+	top: 0%;
+	left: 20%;
+	width: 20%;
+	height: 100%;
+}
+
+.five3 {
+	top: 0%;
+	left: 40%;
+	width: 20%;
+	height: 100%;
+}
+
+.five4 {
+	top: 0%;
+	left: 60%;
+	width: 20%;
+	height: 100%;
+}
+
+.five5 {
+	top: 0%;
+	left: 80%;
+	width: 20%;
+	height: 100%;
 }
