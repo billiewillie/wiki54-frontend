@@ -5,7 +5,7 @@ const MapSpot = ({ clickHandler, place }) => {
 		<div
 			className={styles.Spot}
 			onClick={() => clickHandler(place.line, place.place)}
-			style={{ top: `${place.top}px`, left: `${place.left}px` }}></div>
+			style={{ top: `${place.top}vh`, left: `${place.left}vw` }}></div>
 	);
 };
 

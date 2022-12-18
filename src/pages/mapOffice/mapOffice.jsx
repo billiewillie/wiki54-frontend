@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ScrollContainer } from 'react-indiana-drag-scroll';
 import { getUsers } from '../../store/usersSlice';
 
 import { places } from '../../data/places';
 import MapSpot from '../../components/mapSpot/MapSpot';
 import officeImg from '../../assets/office.jpg';
+import 'react-indiana-drag-scroll/dist/style.css';
 import styles from './MapOffice.module.css';
 
 const MapOffice = () => {
@@ -25,7 +27,9 @@ const MapOffice = () => {
 
 	return (
 		<div className={styles.MapOffice}>
-			<img className={styles.Img} src={officeImg} alt='office' />
+			<ScrollContainer>
+				<img className={styles.Img} src={officeImg} alt='office' />
+			</ScrollContainer>
 			{places.map((place) => (
 				<MapSpot key={place.id} clickHandler={clickHandler} place={place} />
 			))}

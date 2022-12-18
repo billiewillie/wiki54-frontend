@@ -13,7 +13,7 @@
 	grid-template-rows: auto auto 1fr auto;
 }
 
-main.main {
+.main {
 	grid-area: main;
 	display: flex;
 	justify-content: center;
@@ -21,6 +21,18 @@ main.main {
 	color: black;
 	text-align: left;
 	padding: 80px 0 0;
+}
+
+.mainMap {
+	grid-area: main;
+	display: flex;
+	justify-content: flex-end;
+	background-color: #e5e5e5;
+	color: black;
+	text-align: left;
+	padding: 64px 0 0 180px;
+	height: calc(100vh - 64px);
+	width: calc(100vw - 180px);
 }
 
 @media (min-width: 1200px) {

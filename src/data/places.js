@@ -3,8 +3,8 @@ export const places = [
 		id: '26/6',
 		line: 26,
 		place: 6,
-		top: 1586,
-		left: 764,
+		top: 55.9,
+		left: 17.7,
 	},
 	{
 		id: '27/2',

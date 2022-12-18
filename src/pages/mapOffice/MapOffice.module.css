@@ -1,17 +1,20 @@
 .MapOffice {
 	position: relative;
-	overflow: scroll;
+	overflow: hidden;
+	height: calc(100vh - 80px);
+	width: calc(100vw - 180px);
 }
 
 .Img {
 	display: block;
 	position: relative;
 	max-width: none;
+	width: 100%;
 }
 
 .Card {
-	position: fixed;
-	bottom: 0;
+	position: absolute;
+	top: 0;
 	z-index: 1;
 	width: 180px;
 	color: #fff;
