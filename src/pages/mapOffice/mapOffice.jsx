@@ -27,10 +27,99 @@ const MapOffice = () => {
 
 	return (
 		<div className={styles.MapOffice}>
-			<ScrollContainer>
+			<div className={styles.Schema}>
+				<div className={`${styles.Table} ${styles.boss1}`}></div>
+				<div className={`${styles.Table} ${styles.boss2}`}></div>
+				<div className={styles.gradeA}>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+						<div className={`${styles.Table} ${styles.quadro5}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+						<div className={`${styles.Table} ${styles.quadro5}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.quadro}>
+						<div className={`${styles.Table} ${styles.quadro1}`}></div>
+						<div className={`${styles.Table} ${styles.quadro2}`}></div>
+						<div className={`${styles.Table} ${styles.quadro3}`}></div>
+						<div className={`${styles.Table} ${styles.quadro4}`}></div>
+					</div>
+					<div className={styles.triple}>
+						<div className={`${styles.Table} ${styles.triple1}`}></div>
+						<div className={`${styles.Table} ${styles.triple2}`}></div>
+						<div className={`${styles.Table} ${styles.triple3}`}></div>
+						<div className={`${styles.Table} ${styles.triple4}`}></div>
+						<div className={`${styles.Table} ${styles.triple5}`}></div>
+						<div className={`${styles.Table} ${styles.triple6}`}></div>
+					</div>
+					<div className={styles.triple}>
+						<div className={`${styles.Table} ${styles.triple1}`}></div>
+						<div className={`${styles.Table} ${styles.triple2}`}></div>
+						<div className={`${styles.Table} ${styles.triple3}`}></div>
+						<div className={`${styles.Table} ${styles.triple4}`}></div>
+						<div className={`${styles.Table} ${styles.triple5}`}></div>
+						<div className={`${styles.Table} ${styles.triple6}`}></div>
+					</div>
+					<div className={styles.triple}>
+						<div className={`${styles.Table} ${styles.triple1}`}></div>
+						<div className={`${styles.Table} ${styles.triple2}`}></div>
+						<div className={`${styles.Table} ${styles.triple3}`}></div>
+						<div className={`${styles.Table} ${styles.triple4}`}></div>
+						<div className={`${styles.Table} ${styles.triple5}`}></div>
+						<div className={`${styles.Table} ${styles.triple6}`}></div>
+					</div>
+					<div className={styles.triple}>
+						<div className={`${styles.Table} ${styles.triple1}`}></div>
+						<div className={`${styles.Table} ${styles.triple2}`}></div>
+						<div className={`${styles.Table} ${styles.triple3}`}></div>
+						<div className={`${styles.Table} ${styles.triple4}`}></div>
+						<div className={`${styles.Table} ${styles.triple5}`}></div>
+						<div className={`${styles.Table} ${styles.triple6}`}></div>
+					</div>
+				</div>
+				{/* <div className={styles.gradeB}></div> */}
+			</div>
+			{/* <ScrollContainer>
 				<img className={styles.Img} src={officeImg} alt='office' />
-			</ScrollContainer>
-			{places.map((place) => (
+			</ScrollContainer> */}
+			{/* {places.map((place) => (
 				<MapSpot key={place.id} clickHandler={clickHandler} place={place} />
 			))}
 			{user && (
@@ -42,7 +131,7 @@ const MapOffice = () => {
 					<p>ряд {user.line}</p>
 					<p>место {user.place}</p>
 				</div>
-			)}
+			)} */}
 		</div>
 	);
 };
