@@ -23,6 +23,11 @@
 	border-color: #000;
 }
 
+.ScaleButton:focus,
+.ScaleButton:focus-visible {
+	outline: #000;
+}
+
 .Img {
 	display: block;
 	position: relative;
@@ -69,14 +74,14 @@
 }
 
 .boss1 {
-	top: 20%;
+	top: 60%;
 	left: 1%;
 	width: 10%;
 	height: 25%;
 }
 
 .boss2 {
-	top: 60%;
+	top: 20%;
 	left: 1%;
 	width: 10%;
 	height: 25%;
