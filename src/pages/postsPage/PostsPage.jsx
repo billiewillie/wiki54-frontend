@@ -24,7 +24,7 @@ const PostsPage = () => {
 				))}
 			{user.isAdmin && (
 				<Link to={`/${department}/createPost`}>
-					d<p>Новый пост</p>
+					<p>Новый пост</p>
 				</Link>
 			)}
 		</div>

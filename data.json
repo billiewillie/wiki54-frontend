@@ -1,50 +1,26 @@
 [
 	{
-		"firstName": "Росина",
-		"lastName": "Глущенко",
-		"email": "rosina.glushchenko@studia54.com",
-		"password": "rosina.glushchenko@studia54.com",
-		"departments": ["marketing", "studia54"],
-		"isAdmin": false,
-		"isMapOpened": false,
-		"line": 23,
-		"place": 4,
-		"photo": "http://localhost:4444/uploads/rosina_glushchenko.jpg"
-	},
-	{
-		"firstName": "Алена",
-		"lastName": "Каминская",
-		"email": "alyona.kaminskaya@studia54.com",
-		"password": "alyona.kaminskaya@studia54.com",
-		"departments": ["marketing", "studia54"],
-		"isAdmin": false,
-		"isMapOpened": false,
-		"line": 24,
-		"place": 3,
-		"photo": "http://localhost:4444/uploads/alyona_kaminskaya.jpg"
-	},
-	{
-		"firstName": "Мария",
-		"lastName": "Злыгостева",
-		"email": "maria.zlygosteva@studia54.com",
-		"password": "maria.zlygosteva@studia54.com",
-		"departments": ["purchase", "studia54"],
+		"firstName": "Константин",
+		"lastName": "Клюев",
+		"email": "konstantin.kluev@studia54.com",
+		"password": "konstantin.kluev@studia54.com",
+		"departments": ["studia54", "design", "studia54", "marketing", "architecture", "procurement", "management"],
 		"isAdmin": true,
-		"isMapOpened": false,
-		"line": 31,
-		"place": 2,
-		"photo": "http://localhost:4444/uploads/maria_zlygosteva.jpg"
+		"isMapOpened": true,
+		"placeId": "place100/1",
+		"position": "CEO",
+		"photo": "http://localhost:4444/uploads/konstantin_kluev.jpg"
 	},
 	{
-		"firstName": "Павел",
-		"lastName": "Полянский",
-		"email": "pavel.polyanskii@studia54.com",
-		"password": "pavel.polyanskii@studia54.com",
-		"departments": ["design", "studia54"],
+		"firstName": "Ольга",
+		"lastName": "Иванова",
+		"email": "olga.ivanova@studia54.com",
+		"password": "olga.ivanova@studia54.com",
+		"departments": ["studia54", "design", "studia54", "marketing", "architecture", "procurement", "management"],
 		"isAdmin": true,
-		"isMapOpened": false,
-		"line": 21,
-		"place": 4,
-		"photo": "http://localhost:4444/uploads/pavel_polyanskii.jpg"
+		"isMapOpened": true,
+		"placeId": "place100/2",
+		"position": "CEO",
+		"photo": "http://localhost:4444/uploads/olga_ivanova.jpg"
 	}
 ]

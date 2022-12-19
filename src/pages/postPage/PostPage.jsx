@@ -1,17 +1,23 @@
 import { useEffect } from 'react';
 import Parser from 'html-react-parser';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useParams } from 'react-router-dom';
 
 import TableOfContent from '../../components/tableOfContent/TableOfContent';
 import styles from './PostPage.module.css';
+import { fetchPosts } from '../../store/postSlice';
 
 const PostPage = () => {
+	const dispatch = useDispatch();
 	const location = useLocation();
 	const { state } = location;
 	const { department, id } = useParams();
 	const user = useSelector((state) => state.user.user);
 	const [post] = useSelector((state) => state.posts.posts.filter((post) => post._id === id));
+
+	useEffect(() => {
+		dispatch(fetchPosts(department));
+	}, [department]);
 
 	useEffect(() => {
 		const anchor = document.getElementById('imhere');
@@ -21,6 +27,8 @@ const PostPage = () => {
 			}
 		});
 	}, []);
+
+	console.log(state);
 
 	const Result = () => {
 		if (state?.query) {

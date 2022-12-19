@@ -1,13 +1,19 @@
 .Spot {
 	position: absolute;
-	border-radius: 50px;
-	border: 6px solid transparent;
-	width: 10px;
-	height: 10px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 	cursor: pointer;
-	transition: border 0.3s ease-in-out;
+	box-sizing: border-box;
+	display: flex;
+	transition: background-color 0.3s ease-in-out;
+	align-items: center;
+	justify-content: center;
 }
 
 .Spot:hover {
-	border: 6px solid #fff;
+	background-color: #fff;
 }

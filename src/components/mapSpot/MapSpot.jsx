@@ -1,11 +1,23 @@
+import { useSelector } from 'react-redux';
 import styles from './MapSpot.module.css';
 
-const MapSpot = ({ clickHandler, place }) => {
+const MapSpot = ({ id, clickHandler }) => {
+	const [user] = useSelector((state) => state.users.users.filter((user) => user.placeId === id));
+	let firstLetter;
+	let lastLetter;
+	if (user) {
+		firstLetter = user.firstName.slice(0, 1);
+		lastLetter = user.lastName.slice(0, 1);
+	}
+
 	return (
-		<div
-			className={styles.Spot}
-			onClick={() => clickHandler(place.line, place.place)}
-			style={{ top: `${place.top}vh`, left: `${place.left}vw` }}></div>
+		<>
+			{user && (
+				<div className={styles.Spot} onClick={() => clickHandler(id)}>
+					{`${firstLetter}${lastLetter}`}
+				</div>
+			)}
+		</>
 	);
 };
 
