@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ReactQuill, { Quill } from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import 'react-quill/dist/quill.snow.css';
+import styles from './EditorPage.module.css';
 
 import { editPost } from '../../store/postSlice';
 
@@ -123,11 +124,13 @@ const EditorPage = () => {
 	];
 
 	return (
-		<>
-			{post && <input type='text' defaultValue={post.title} ref={titleRef} />}
+		<div className={styles.EditPost}>
+			{post && <input type='text' defaultValue={post.title} ref={titleRef} placeholder='Введите заголовок' />}
 			{post && <ReactQuill ref={editorRef} value={post.body} theme='snow' modules={modules} formats={formats} />}
-			<button onClick={buttonHandler}>Сохранить</button>
-		</>
+			<button onClick={buttonHandler} className={styles.EditPostButton}>
+				Сохранить
+			</button>
+		</div>
 	);
 };
 

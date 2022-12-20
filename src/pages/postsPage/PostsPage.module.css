@@ -1,0 +1,17 @@
+.CreatePostButton {
+	display: inline-flex;
+	align-self: flex-start;
+	border-radius: 0;
+	color: #cba37c;
+	background-color: #171717 !important;
+	border-color: #171717 !important;
+	padding: 10px 16px;
+}
+
+.CreatePostButton p {
+	margin: 0;
+}
+
+.CreatePostButton:hover {
+	color: #cba37c;
+}

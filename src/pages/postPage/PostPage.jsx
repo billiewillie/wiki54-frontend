@@ -23,6 +23,7 @@ const PostPage = () => {
 		const anchor = document.getElementById('imhere');
 		setTimeout(() => {
 			if (anchor) {
+				console.log(anchor);
 				anchor.scrollIntoView(true);
 			}
 		});
@@ -54,7 +55,11 @@ const PostPage = () => {
 					<h1>{post.title}</h1>
 					<Result />
 					<TableOfContent />
-					{user.isAdmin && <Link to={`/${department}/${id}/edit`}>Редактировать пост</Link>}
+					{user.isAdmin && (
+						<Link to={`/${department}/${id}/edit`} className={styles.EditPostButton}>
+							Редактировать пост
+						</Link>
+					)}
 				</div>
 			)}
 		</>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Highlighter from 'react-highlight-words';
+import Parser from 'html-react-parser';
 
 import axios from '../../axios';
 import styles from './Search.module.css';
@@ -28,11 +29,11 @@ const Search = () => {
 			const mapedPosts = filteredPosts.map((post) => {
 				const index = post.body.indexOf(query);
 				if (index - 50 < 0) {
-					post.body = `${post.body.slice(0, index + 80)}...`;
+					post.body = `${Parser(post.body.slice(0, index + 80))}...`;
 				} else if (index + 50 > post.body.length) {
-					post.body = `...${post.body.slice(index - 50)}`;
+					post.body = `...${Parser(post.body.slice(index - 50))}`;
 				} else {
-					post.body = `...${post.body.slice(index - 50, index + 50)}...`;
+					post.body = `...${Parser(post.body.slice(index - 50, index + 50))}...`;
 				}
 				return post;
 			});
@@ -67,8 +68,20 @@ const Search = () => {
 							{data &&
 								data.map((item) => (
 									<Link to={`/${item.department}/${item._id}`} key={item._id} onClick={hideSearchResults} state={{ query }}>
-										<Highlighter highlightClassName='YourHighlightClass' searchWords={[query]} autoEscape={true} textToHighlight={item.title} />
-										<Highlighter highlightClassName='YourHighlightClass' searchWords={[query]} autoEscape={true} textToHighlight={item.body} />
+										<Highlighter
+											highlightClassName='YourHighlightClass'
+											className={styles.SearchTitle}
+											searchWords={[query]}
+											autoEscape={true}
+											textToHighlight={item.title}
+										/>
+										<Highlighter
+											className='searchText'
+											highlightClassName='YourHighlightClass'
+											searchWords={[query]}
+											autoEscape={true}
+											textToHighlight={item.body}
+										/>
 									</Link>
 								))}
 						</div>

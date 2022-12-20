@@ -1,19 +1,19 @@
-.post {
+.EditPost {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
 	width: 70%;
-	padding-left: 16px;
-	padding-bottom: 20px;
+}
+
+.EditPostInput {
+	padding: 20px;
 }
 
 .EditPostButton {
 	margin-top: 60px;
 	align-self: flex-start;
 	border-radius: 0;
-	padding: 10px 16px;
 	color: #cba37c;
 	background-color: #171717 !important;
 	border-color: #171717 !important;
-}
-
-.EditPostButton:hover {
-	color: #cba37c;
 }

@@ -27,27 +27,33 @@ const TableOfContent = () => {
 	};
 
 	return (
-		<nav className={styles.nav}>
-			<ul>
-				{headings.map((heading) => (
-					<li key={heading.id} className={getClassName(heading.level)}>
-						<a
-							href={`#${heading.id}`}
-							onClick={(e) => {
-								e.preventDefault();
-								document.querySelector(`#${heading.id}`).scrollIntoView({
-									behavior: 'smooth',
-								});
-							}}
-							style={{
-								fontWeight: activeId === heading.id ? 'bold' : 'normal',
-							}}>
-							{heading.text}
-						</a>
-					</li>
-				))}
-			</ul>
-		</nav>
+		<>
+			<nav className={styles.nav}>
+				<p>
+					<b>Навигация по заголовкам</b>
+				</p>
+				<ul>
+					{headings.map((heading) => (
+						<li key={heading.id} className={getClassName(heading.level)}>
+							<a
+								href={`#${heading.id}`}
+								onClick={(e) => {
+									e.preventDefault();
+									document.querySelector(`#${heading.id}`).scrollIntoView({
+										behavior: 'smooth',
+									});
+								}}
+								style={{
+									fontWeight: 'normal',
+									// fontWeight: activeId === heading.id ? 'bold' : 'normal',
+								}}>
+								{heading.text}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</>
 	);
 };
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchPosts } from '../../store/postSlice';
+import styles from './PostsPage.module.css';
 
 const PostsPage = () => {
 	const { department } = useParams();
@@ -23,7 +24,7 @@ const PostsPage = () => {
 					</Link>
 				))}
 			{user.isAdmin && (
-				<Link to={`/${department}/createPost`}>
+				<Link to={`/${department}/createPost`} className={styles.CreatePostButton}>
 					<p>Новый пост</p>
 				</Link>
 			)}

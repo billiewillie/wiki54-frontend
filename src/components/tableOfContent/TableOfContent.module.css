@@ -1,6 +1,6 @@
 .nav {
 	position: fixed;
-	right: 0;
+	right: 10px;
 	width: 180px;
 	top: 100px;
 	overflow: auto;
@@ -8,6 +8,7 @@
 
 .nav ul {
 	list-style: none;
+	padding-left: 0;
 }
 
 .nav ul li {
