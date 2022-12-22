@@ -4,23 +4,48 @@
 		"lastName": "Клюев",
 		"email": "konstantin.kluev@studia54.com",
 		"password": "konstantin.kluev@studia54.com",
-		"departments": ["studia54", "design", "studia54", "marketing", "architecture", "procurement", "management"],
+		"departments": [
+			{
+				"pathName": "studia54",
+				"title": "Студия 54"
+			},
+			{
+				"pathName": "engineering",
+				"title": "Проектирование"
+			},
+			{
+				"pathName": "design",
+				"title": "Дизайн"
+			},
+			{
+				"pathName": "architecture",
+				"title": "Архитектура"
+			},
+			{
+				"pathName": "procurement",
+				"title": "Комплектация"
+			},
+			{
+				"pathName": "management",
+				"title": "Менеджмент"
+			},
+			{
+				"pathName": "marketing",
+				"title": "Маркетинг"
+			},
+			{
+				"pathName": "sales",
+				"title": "Отдел продаж"
+			},
+			{
+				"pathName": "hr",
+				"title": "Отдел кадров"
+			}
+		],
 		"isAdmin": true,
 		"isMapOpened": true,
 		"placeId": "place100/1",
 		"position": "CEO",
 		"photo": "http://localhost:4444/uploads/konstantin_kluev.jpg"
-	},
-	{
-		"firstName": "Ольга",
-		"lastName": "Иванова",
-		"email": "olga.ivanova@studia54.com",
-		"password": "olga.ivanova@studia54.com",
-		"departments": ["studia54", "design", "studia54", "marketing", "architecture", "procurement", "management"],
-		"isAdmin": true,
-		"isMapOpened": true,
-		"placeId": "place100/2",
-		"position": "CEO",
-		"photo": "http://localhost:4444/uploads/olga_ivanova.jpg"
 	}
 ]

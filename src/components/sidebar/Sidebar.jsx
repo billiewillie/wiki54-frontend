@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Sidebar.module.css';
 
@@ -14,6 +14,9 @@ const Sidebar = () => {
 							<NavLink to={`/${item}`}>{item}</NavLink>
 						</li>
 					))}
+					<a href='skype:live:.cid.2dc3482c3a972332?chat' style={{ color: 'white' }}>
+						user's skype
+					</a>
 					{user?.isMapOpened && (
 						<li className={styles.listItem}>
 							<NavLink to='/mapOffice'>Карта офиса</NavLink>

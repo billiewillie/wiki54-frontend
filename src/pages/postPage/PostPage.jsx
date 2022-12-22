@@ -24,13 +24,9 @@ const PostPage = () => {
 			const anchor = document.getElementById('imhere');
 
 			if (anchor) {
-				console.log(anchor);
 				anchor.scrollIntoView({
 					behavior: 'smooth',
 				});
-				// document.querySelector(`#${heading.id}`).scrollIntoView({
-				// 	behavior: 'smooth',
-				// });
 			}
 		}, 300);
 	}, []);
