@@ -44,8 +44,7 @@ const TableOfContent = () => {
 									});
 								}}
 								style={{
-									fontWeight: 'normal',
-									// fontWeight: activeId === heading.id ? 'bold' : 'normal',
+									fontWeight: activeId === heading.id ? 'bold' : 'normal',
 								}}>
 								{heading.text}
 							</a>

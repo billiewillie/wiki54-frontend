@@ -20,13 +20,19 @@ const PostPage = () => {
 	}, [department]);
 
 	useEffect(() => {
-		const anchor = document.getElementById('imhere');
 		setTimeout(() => {
+			const anchor = document.getElementById('imhere');
+
 			if (anchor) {
 				console.log(anchor);
-				anchor.scrollIntoView(true);
+				anchor.scrollIntoView({
+					behavior: 'smooth',
+				});
+				// document.querySelector(`#${heading.id}`).scrollIntoView({
+				// 	behavior: 'smooth',
+				// });
 			}
-		});
+		}, 300);
 	}, []);
 
 	console.log(state);
