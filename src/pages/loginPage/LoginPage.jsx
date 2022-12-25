@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { fetchPosts } from '../../store/postSlice';
 
 import { logIn } from '../../store/userSlice';
 import styles from './LoginPage.module.css';
@@ -11,20 +12,21 @@ const LoginPage = () => {
 	const location = useLocation();
 	const fromPage = location.state?.from?.pathname || '/';
 	const status = useSelector((state) => state.user.status);
+	const user = useSelector((state) => state.user.user);
 
 	const formHandler = async (e) => {
 		e.preventDefault();
 		const email = e.target.email.value;
 		const password = e.target.password.value;
-
-		dispatch(logIn({ email, password }));
+		await dispatch(logIn({ email, password }));
 	};
 
 	useEffect(() => {
-		if (status === 'resolved') {
+		if (user._id) {
+			dispatch(fetchPosts(user._id));
 			navigate(fromPage, { replace: true });
 		}
-	}, [status]);
+	}, [user]);
 
 	return (
 		<div className={styles.LoginPage}>

@@ -10,16 +10,13 @@ const Sidebar = () => {
 			<nav className='sidebar-menu'>
 				<ul className={styles.list}>
 					{user.departments?.map((item) => (
-						<li className={styles.listItem} key={item}>
-							<NavLink to={`/${item}`}>{item}</NavLink>
+						<li className={styles.listItem} key={item._id}>
+							<Link to={`/${item.pathName}`}>{item.title}</Link>
 						</li>
 					))}
-					<a href='skype:live:.cid.2dc3482c3a972332?chat' style={{ color: 'white' }}>
-						user's skype
-					</a>
 					{user?.isMapOpened && (
 						<li className={styles.listItem}>
-							<NavLink to='/mapOffice'>Карта офиса</NavLink>
+							<Link to='/mapOffice'>Карта офиса</Link>
 						</li>
 					)}
 				</ul>

@@ -25,19 +25,20 @@ const Search = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data } = await axios.get(`/?q=${query}`);
-			const filteredPosts = data.filter((post) => user.departments.includes(post.department));
-			const mapedPosts = filteredPosts.map((post) => {
-				const index = post.body.indexOf(query);
-				if (index - 50 < 0) {
-					post.body = `${Parser(post.body.slice(0, index + 80))}...`;
-				} else if (index + 50 > post.body.length) {
-					post.body = `...${Parser(post.body.slice(index - 50))}`;
-				} else {
-					post.body = `...${Parser(post.body.slice(index - 50, index + 50))}...`;
-				}
-				return post;
-			});
-			setData(mapedPosts);
+			// const filteredPosts = data.filter((post) => user.departments.forEach((item) => item.pathName.includes(post.department)));
+			// console.log(filteredPosts);
+			// const mapedPosts = filteredPosts.map((post) => {
+			// 	const index = post.body.indexOf(query);
+			// 	if (index - 50 < 0) {
+			// 		post.body = `${Parser(post.body.slice(0, index + 80))}...`;
+			// 	} else if (index + 50 > post.body.length) {
+			// 		post.body = `...${Parser(post.body.slice(index - 50))}`;
+			// 	} else {
+			// 		post.body = `...${Parser(post.body.slice(index - 50, index + 50))}...`;
+			// 	}
+			// 	return post;
+			// });
+			// setData(mapedPosts);
 		};
 		if (query.length > 2) {
 			fetchData();

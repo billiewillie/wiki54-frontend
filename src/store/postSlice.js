@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from '../axios';
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (department, { rejectWithValue }) => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (userId, { rejectWithValue }) => {
 	try {
-		const { data } = await axios.get(`/posts/${department}`);
+		const { data } = await axios.get(`/posts/${userId}`);
 		return data;
 	} catch (error) {
 		return rejectWithValue(error.message);

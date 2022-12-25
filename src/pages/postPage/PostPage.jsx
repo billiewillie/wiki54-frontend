@@ -31,8 +31,6 @@ const PostPage = () => {
 		}, 300);
 	}, []);
 
-	console.log(state);
-
 	const Result = () => {
 		if (state?.query) {
 			return (
